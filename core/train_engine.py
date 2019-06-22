@@ -140,9 +140,8 @@ def dataset_factory(*ignore, dataset, subset_ratio, train):
                 transform=tiny_imagenet_transform,
                 train=train)
     elif dataset == 'ImageNet':
-        # TODO: hardcoded path for NOW
         ds = ImageNet(
-                root=os.path.join('/scratch_ssd/chofer/data', dataset),
+                root=os.path.join(DS_ROOT, dataset),
                 transform=imagenet_transform,
                 train=train)
     else:
