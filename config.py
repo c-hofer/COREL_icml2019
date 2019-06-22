@@ -15,10 +15,10 @@ PAPER_COLORS = {
 
 
 class paths:
-	ablation_bkb_dir = '/scratch_ssd/chofer/icml19_models/ablation'
+	ablation_bkb_dir = './models/ablation'
 	ablation_res_dir = './results_ablation'
 
-	performance_bkb_dir = '/scratch_ssd/chofer/icml19_models/performance'
+	performance_bkb_dir = './models/performance'
 	performance_res_dir = './results_performance'
 
 	dataset_root_generic = '/scratch1/chofer/data'
