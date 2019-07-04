@@ -15,11 +15,11 @@ PAPER_COLORS = {
 
 
 class paths:
-	ablation_bkb_dir = './models/ablation'
-	ablation_res_dir = './results_ablation'
+	ablation_bkb_dir = '/home/pma/chofer/repositories/COREL_icml2019/models/ablation'
+	ablation_res_dir = '/home/pma/chofer/repositories/COREL_icml2019/results_ablation'
 
-	performance_bkb_dir = './models/performance'
-	performance_res_dir = './results_performance'
+	performance_bkb_dir = '/home/pma/chofer/repositories/COREL_icml2019/models/performance'
+	performance_res_dir = '/home/pma/chofer/repositories/COREL_icml2019/results_performance'
 
 	dataset_root_generic = '/scratch1/chofer/data'
 	dataset_root_special = {}
