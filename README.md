@@ -1,34 +1,116 @@
 # COREL_icml2019
-Code for "Connectivity-Optimized Representation Learning via Persistent Homology", ICML 2019
 
-# Installation 
+This repository contains code to **reproduce** the experiments from
 
-Prerequisites: 
-	Anaconda (installer: Anaconda3-2019.03-Linux-x86_64.sh)
-	Pytorch 1.1 (python 3.7, cuda 10)
+**Connectivity-Optimized Representation Learning via Persistent Homology**    
+C. Hofer, R. Kwitt, M. Dixit and M. Niethammer    
+*ICML '19*    
+[PDF](http://proceedings.mlr.press/v97/hofer19a.html)
 
-
-```
-conda develop path/to/your/chofer_torchex/clone
+If you use this code (or parts of it), please cite this work as
 
 ```
+@inproceedings{Hofer19a,
+	  title     = {Connectivity-Optimized Representation Learning via Persistent Homology},
+		author    = {C.~Hofer, R.~Kwitt, M.~Dixit and M.~Niethammer},
+		booktitle = {ICML},
+		year      = {2019}}
+```
+
+- [Installation](#installation)
+- [Datasets](#datasets)
+- [Experiments](#experiments)
+
+## Installation
+
+The following setup was tested on a Ubuntu 18.04.2 LTS system with CUDA 10
+(driver version 410.48) using Anaconda (Python 3.7).
+
+In the following, we assume that we work in `/tmp` (obviously, you have to
+	change this to reflect your choice :)
+
+First, get the Anaconda installer and install Anaconda (in `/tmp/anaconda3`)
+using
+
+```bash
+cd /tmp/
+wget https://repo.anaconda.com/archive/Anaconda3-2019.03-Linux-x86_64.sh
+bash Anaconda3-2019.03-Linux-x86_64.sh
+# specify /tmp/anconda3 as your installation path
+source /tmp/anaconda3/bin/activate
+```
+
+Second, we install PyTorch (v1.1) using
+
+```bash
+conda install pytorch torchvision cudatoolkit=10.0 -c pytorch
+```
+
+Third, we clone the `chofer_torchex` repository from GitHub (which basically
+	implements all the functionality required for the experiments) and make
+	it available within Anaconda.
+
+```bash
+cd /tmp/
+git clone https://github.com/c-hofer/chofer_torchex.git
+git fetch --all --tags --prune     
+git checkout tags/icml2019_code_release -b icml2019_code_release
+conda develop /tmp/chofer_torchex
+```
+
+Finally, we clone this GitHub repository, using
+
+```bash
+cd /tmp/
+git clone https://github.com/c-hofer/COREL_icml2019.git
+cd COREL_icml2019
+mkdir data
+```
+
+## Datasets
+
+Note that CIFAR10 and CIFAR100 are directly available via PyTorch and will
+be downloaded automatically (to `/tmp/COREL_icml2019/data`). For TinyImageNet-200,
+please use the following link and extract the downloaded zip file into
+`/tmp/COREL_icml2019/data`:
+
+```bash
+cd /tmp/COREL_icml2019/data
+wget http://cs231n.stanford.edu/tiny-imagenet-200.zip
+unzip http://cs231n.stanford.edu/tiny-imagenet-200.zip
+```
+
+*Note*: ImageNet instructions will be added soon!
+
 
 ## Experiments
 
-All experiments have the same structure. 
-First a autoencoder, i.e., "backbone", is trained on an auxiliary dataset, e.g., `CIFAR10`.
-Then the trained backbone's encoder is used to represent samples from the test-dataset, e.g., `ImageNet`. 
+All experiments have the same structure.
+First a autoencoder, i.e., the "backbone", is trained on an auxiliary dataset, e.g., `CIFAR10`.
+Then the trained backbone's encoder is used to represent samples from the test-dataset, e.g., `ImageNet`.
 
+### Performance study
 
-*performance study*: here we train backbones on various auxiliary datasets (`CIFAR10`, `CIFAR100`, `TinyImageNet`) and evaluate the one-class performance on the test datasets (`CIFAR10`, `CIFAR100`, `TinyImageNet`, `ImageNet`). 
+Here we train backbones on various auxiliary datasets (`CIFAR10`, `CIFAR100`, `TinyImageNet`) and evaluate the one-class performance on the test datasets (`CIFAR10`, `CIFAR100`, `TinyImageNet`, `ImageNet`).
 
-*ablation study*: in this group of experiments the overall impact of the hyper-parameters is evaluated. 
-Most importantly, the impact of the weighting factor of the proposed connectivity loss. 
-
-## Run experiments
-
-*Backbone training*. First we have to train the various backbones
-```
+```bash
+cd /tmp/COREL_icml2019
 python train_backbone_performance.py
-python train_backbone_ablation.py
+python eval_backbone_performance.py
 ```
+
+### Ablation study
+
+In this group of experiments the overall impact of the hyper-parameters is evaluated.
+Most importantly, the impact of the weighting factor of the proposed connectivity loss.
+
+```bash
+cd /tmp/COREL_icml2019
+python train_backbone_ablation.py
+python eval_backbone_ablation.py
+```
+
+### Fetching results
+
+We provide two Jupyter notebooks to query results from the previous experiments,
+in particular, `ablation_study.ipynb` and `performance_study.ipynb`.
