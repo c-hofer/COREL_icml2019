@@ -1,4 +1,4 @@
-# COREL_icml2019
+# Connectivity-Optimized Representation Learning
 
 This repository contains code to **reproduce** the experiments from
 
@@ -11,9 +11,9 @@ If you use this code (or parts of it), please cite this work as
 
 ```
 @inproceedings{Hofer19a,
-	  title     = {Connectivity-Optimized Representation Learning via Persistent Homology},
-		author    = {C.~Hofer, R.~Kwitt, M.~Dixit and M.~Niethammer},
-		booktitle = {ICML},
+    title     = {Connectivity-Optimized Representation Learning via Persistent Homology},
+    author    = {C.~Hofer, R.~Kwitt, M.~Dixit and M.~Niethammer},
+    booktitle = {ICML},
 		year      = {2019}}
 ```
 
@@ -27,7 +27,8 @@ The following setup was tested on a Ubuntu 18.04.2 LTS system with CUDA 10
 (driver version 410.48) using Anaconda (Python 3.7).
 
 In the following, we assume that we work in `/tmp` (obviously, you have to
-	change this to reflect your choice :)
+	change this to reflect your choice and using `/tmp` is, of course, not
+	the best choice :).
 
 First, get the Anaconda installer and install Anaconda (in `/tmp/anaconda3`)
 using
@@ -58,7 +59,7 @@ git checkout tags/icml2019_code_release -b icml2019_code_release
 conda develop /tmp/chofer_torchex
 ```
 
-Finally, we clone this GitHub repository, using
+Fourth, we clone this GitHub repository, using
 
 ```bash
 cd /tmp/
@@ -66,6 +67,20 @@ git clone https://github.com/c-hofer/COREL_icml2019.git
 cd COREL_icml2019
 mkdir data
 ```
+
+Finally, we modify `config.py` to reflect our choice of directories:
+
+```python
+ablation_bkb_dir = '/tmp/COREL_icml2019/models/ablation'
+ablation_res_dir = '/tmp/COREL_icml2019/results_ablation'
+
+performance_bkb_dir = '/tmp/COREL_icml2019/models/performance'
+performance_res_dir = '/tmp/COREL_icml2019/results_performance'
+
+dataset_root_generic = '/tmp/COREL_icml2019/data'
+dataset_root_special = {}
+```
+
 
 ## Datasets
 

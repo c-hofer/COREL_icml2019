@@ -13,14 +13,17 @@ PAPER_COLORS = {
 	'grass2':		'#578134',
 	'grass3':		'#264809'}
 
+#
+# PLEASE CHANGE <PATH> TO YOUR DESIRED ROOT FOLDER WHERE YOU CHECKED OUT THE
+# REPOSITORY AND SET <DATAPATH> ACCORDINGLY!
+#
 
 class paths:
-	ablation_bkb_dir = '/home/pma/chofer/repositories/COREL_icml2019/models/ablation'
-	ablation_res_dir = '/home/pma/chofer/repositories/COREL_icml2019/results_ablation'
+	ablation_bkb_dir = '<PATH>/COREL_icml2019/models/ablation'
+	ablation_res_dir = '<PATH>/COREL_icml2019/results_ablation'
 
-	performance_bkb_dir = '/home/pma/chofer/repositories/COREL_icml2019/models/performance'
-	performance_res_dir = '/home/pma/chofer/repositories/COREL_icml2019/results_performance'
+	performance_bkb_dir = '<PATH>/COREL_icml2019/models/performance'
+	performance_res_dir = '<PATH>/COREL_icml2019/results_performance'
 
-	dataset_root_generic = '/scratch1/chofer/data'
+	dataset_root_generic = '<DATAPATH>'
 	dataset_root_special = {}
-	
