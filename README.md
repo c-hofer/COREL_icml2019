@@ -13,9 +13,11 @@ If you use this code (or parts of it), please cite this work as
 @inproceedings{Hofer19a,
     title     = {Connectivity-Optimized Representation Learning via Persistent Homology},
     author    = {C.~Hofer, R.~Kwitt, M.~Dixit and M.~Niethammer},
-    booktitle = {ICML},
-		year      = {2019}}
+    booktitle = {ICML},    
+    year      = {2019}}
 ```
+
+## Contents
 
 - [Installation](#installation)
 - [Datasets](#datasets)
@@ -23,8 +25,12 @@ If you use this code (or parts of it), please cite this work as
 
 ## Installation
 
-The following setup was tested on a Ubuntu 18.04.2 LTS system with CUDA 10
-(driver version 410.48) using Anaconda (Python 3.7).
+The following setup was tested with the following system configuration:
+
+- Ubuntu 18.04.2 LTS
+- CUDA 10 (driver version 410.48)
+- Anaconda (Python 3.7)
+- PyTorch 1.1
 
 In the following, we assume that we work in `/tmp` (obviously, you have to
 	change this to reflect your choice and using `/tmp` is, of course, not
