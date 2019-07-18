@@ -60,8 +60,10 @@ Third, we clone the `chofer_torchex` repository from GitHub (which basically
 ```bash
 cd /tmp/
 git clone https://github.com/c-hofer/chofer_torchex.git
+cd chofer_torchex
 git fetch --all --tags --prune     
 git checkout tags/icml2019_code_release -b icml2019_code_release
+cd ../
 conda develop /tmp/chofer_torchex
 ```
 
