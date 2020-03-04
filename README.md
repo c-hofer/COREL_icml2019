@@ -53,18 +53,19 @@ Second, we install PyTorch (v1.1) using
 conda install pytorch torchvision cudatoolkit=10.0 -c pytorch
 ```
 
-Third, we clone the `chofer_torchex` repository from GitHub (which basically
-	implements all the functionality required for the experiments) and make
+Third, we clone the `torchph` repository from GitHub (which basically
+	implements all the functionality required for the experiments - previously named
+	`chofer_torchex`) and make
 	it available within Anaconda.
 
 ```bash
 cd /tmp/
-git clone https://github.com/c-hofer/chofer_torchex.git
-cd chofer_torchex
+git clone https://github.com/c-hofer/torchph.git
+cd torchph
 git fetch --all --tags --prune     
 git checkout tags/icml2019_code_release -b icml2019_code_release
 cd ../
-conda develop /tmp/chofer_torchex
+conda develop /tmp/torchph
 ```
 
 Fourth, we clone this GitHub repository, using
